@@ -18,30 +18,30 @@ public class LeaveRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 80)
+    @Column(name = "employee_username", nullable = false, length = 80)
     private String employeeUsername;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column(name = "leave_type", nullable = false, length = 20)
     private LeaveType leaveType;
 
-    @Column(nullable = false)
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
-    @Column(nullable = false)
+    @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 
     @Column(nullable = false, length = 1000)
     private String reason;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column(name = "request_status", nullable = false, length = 20)
     private LeaveStatus status;
 
     @Column(length = 1000)
     private String remarks;
 
-    @Column(nullable = false)
+    @Column(name = "submitted_at", nullable = false)
     private LocalDateTime submittedAt;
 
     protected LeaveRequest() {

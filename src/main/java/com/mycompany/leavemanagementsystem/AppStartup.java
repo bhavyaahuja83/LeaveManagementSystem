@@ -9,6 +9,7 @@ public class AppStartup implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent event) {
         try {
+            AppConfig.loadFromApplicationPath(event.getServletContext().getRealPath("/"));
             AppConfig.required("ADMIN_USERNAME");
             AppConfig.required("ADMIN_PASSWORD");
             AppConfig.required("EMPLOYEE_USERNAME");

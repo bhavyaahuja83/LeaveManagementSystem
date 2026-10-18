@@ -18,7 +18,9 @@ EMPLOYEE_PASSWORD=employee123
 
 The provided `.env` is ignored by Git. Hibernate creates or updates the `leave_requests` table on startup. The JDBC URL asks MySQL to create the `leave_management` database if it does not exist; the MySQL account must have permission to do so. For a blank local root password, leave `DB_PASSWORD` empty.
 
-Environment variables take precedence over values in `.env`. If the servlet container is launched from a different working directory and does not find the project-root `.env`, set these values as process environment variables or start the container with the project root as its working directory.
+To create the database and table yourself, run [`database/schema.sql`](./database/schema.sql) in MySQL Workbench or the MySQL command-line client. The script is safe to run again and matches the Hibernate entity mapping.
+
+Environment variables take precedence over values in `.env`. The app checks the deployed application directory and its parent directories for `.env`, which supports NetBeans in-place deployment from this project. If deploying the WAR elsewhere, set these values as process environment variables or make the project-root `.env` available to the Tomcat process; do not package `.env` into the WAR.
 
 ## Run
 
